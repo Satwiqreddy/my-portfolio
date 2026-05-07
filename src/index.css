@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --bg-cream: #FDFBF7;
+  --bg-teal-light: #E9F5F5;
+  --text-dark: #0A2E36;
+  --text-muted: #4A6E75;
+  --accent-teal: #005F73;
+  --accent-mint: #94D2BD;
+  --border-teal: #005F7333;
+  
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+  
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .serif {
+  font-family: var(--font-serif);
+  font-weight: 600;
+}
+
+/* Custom Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.framed-section {
+  position: relative;
+  padding: 4rem 0;
+  margin: 2rem 0;
+}
+
+/* The Bracketed Frame Effect */
+.frame-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-color: var(--accent-teal);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.frame-tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+.frame-tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+.frame-bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+.frame-br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--accent-teal);
+  color: white;
+  text-decoration: none;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  transition: var(--transition);
+  border: 1px solid var(--accent-teal);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--accent-teal);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-teal), var(--accent-mint));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Project Card Hover Effects */
+.project-card {
+  transition: var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-teal) !important;
+  box-shadow: 20px 20px 0px var(--bg-teal-light);
+  background-color: var(--bg-cream) !important;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-card:hover .frame-corner {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+/* Skill Card Hover Effects */
+.skill-card {
+  transition: var(--transition);
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-teal) !important;
+  box-shadow: 15px 15px 0px var(--bg-teal-light);
+  background-color: var(--bg-cream) !important;
+}
+
+.skill-card:hover .frame-corner {
+  width: 25px !important;
+  height: 25px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 0 1rem; }
+  h1 { font-size: 2.5rem; }
+}
